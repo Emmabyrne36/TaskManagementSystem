@@ -2,7 +2,7 @@ import json
 import requests
 import time
 
-API_URL = "http://taskmanagement_api:5000/api/tasks"
+API_URL = "http://taskmanager-api:5000/api/tasks"
 
 def wait_for_api():
     for _ in range(10):
