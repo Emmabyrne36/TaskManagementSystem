@@ -1,0 +1,86 @@
+.task-detail-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.task-detail-form h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.task-detail-form label {
+  display: block;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.task-detail-form input[type="text"],
+.task-detail-form input[type="date"],
+.task-detail-form select,
+.task-detail-form textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.3rem;
+  border: 1.5px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.task-detail-form input[type="text"]:focus,
+.task-detail-form input[type="date"]:focus,
+.task-detail-form select:focus,
+.task-detail-form textarea:focus {
+  border-color: #2980b9;
+  outline: none;
+  box-shadow: 0 0 6px rgba(41, 128, 185, 0.3);
+}
+
+.task-detail-form textarea {
+  min-height: 100px;
+}
+
+.task-detail-form button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.task-detail-form button:disabled {
+  background-color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.task-detail-form button:hover:not(:disabled) {
+  background-color: #3498db;
+}
+
+.task-detail-form p {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: #27ae60;
+}
+
+.task-detail-form p.error {
+  color: #e74c3c;
+}

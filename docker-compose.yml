@@ -1,0 +1,50 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: taskmanager-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    container_name: taskmanager-api
+    build:
+      context: ./API/src
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - MongoDb__ConnectionString=mongodb://mongodb:27017
+    volumes:
+      - ./API/src/TaskManagementSystem.Api/logs:/app/logs
+    depends_on:
+      - mongodb
+
+  seeder:
+    image: python:3.12-alpine
+    volumes:
+      - ./seed.json:/seed.json
+      - ./seed_api.py:/seed_api.py
+    depends_on:
+      - api
+    entrypoint: sh -c "pip install requests && python /seed_api.py"
+  ui:
+    container_name: taskmanager-ui
+    build:
+      context: ./UI/task-manager
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - TASKMANAGEMENT_API_URL=http://taskmanagement_api:5000/api
+    depends_on:
+      - api
+      - seeder
+
+volumes:
+  mongo_data:

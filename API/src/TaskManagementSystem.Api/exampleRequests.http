@@ -1,0 +1,41 @@
+### Get all tasks (with optional pagination)
+GET http://localhost:5000/api/tasks?page=1&pageSize=10
+Accept: application/json
+
+###
+
+### Get task by Id
+@taskId = <-- task Id returned from the above request -->
+GET http://localhost:5000/api/tasks/{{taskId}}
+Accept: application/json
+
+###
+
+### Create a new task
+POST http://localhost:5000/api/tasks
+Content-Type: application/json
+{
+  "title": "Test Task",
+  "priority": "Medium",
+  "dueDate": "2025-08-10T12:00:00Z",
+  "status": "InProgress",
+  "description": ""
+}
+
+###
+
+### Update a task
+PUT http://localhost:5000/api/tasks?id={{taskId}}
+Content-Type: application/json
+{
+  "title": "Update task",
+  "priority": "High",
+  "dueDate": "2025-08-12T12:00:00Z",
+  "status": "Completed",
+  "description": "Copmpleted task"
+}
+
+###
+
+### Delete a task
+DELETE http://localhost:5000/api/tasks?id={{taskId}}

@@ -1,0 +1,67 @@
+.task-item {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-item h3 {
+  margin-top: 0;
+}
+
+.task-meta {
+  margin-bottom: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  font-weight: 600;
+}
+
+.priority.Low {
+  color: green;
+}
+
+.priority.medium {
+  color: orange;
+}
+
+.priority.High {
+  color: red;
+  font-weight: bold;
+}
+
+.status.todo {
+  color: #3498db;
+}
+
+.status.inPogress {
+  color: #f39c12;
+}
+
+.status.done {
+  color: #2ecc71;
+}
+
+.task-content {
+  flex-grow: 1;
+}
+
+.view-details-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.view-details-button:hover {
+  background-color: #3498db;
+}
+
